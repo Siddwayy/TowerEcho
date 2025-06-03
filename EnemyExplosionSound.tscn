@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b26dhg5v0uick"]
+
+[ext_resource type="AudioStream" uid="uid://dp2fbxdqt1n5g" path="res://Assets/mixkit-laser-game-over-1946.wav" id="1_d0y12"]
+[ext_resource type="Script" uid="uid://lhghne4vtful" path="res://Scripts/PlayAndSelfDestruct.gd" id="2_fh4ha"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_d0y12")
+script = ExtResource("2_fh4ha")

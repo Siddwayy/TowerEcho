@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://2gkedm8cw772"]
+
+[ext_resource type="Script" uid="uid://e2e2e604hyx7" path="res://Scripts/bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://dvpydamw74iip" path="res://Assets/laserRed02.png" id="2_v8qja"]
+[ext_resource type="PackedScene" uid="uid://c3gx1225r6oxy" path="res://bullet_trail.tscn" id="3_t4vbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b2rl"]
+size = Vector2(23.5408, 70.1422)
+
+[node name="Bullet" type="Area2D" groups=["player_bullets"]]
+rotation = 1.5708
+scale = Vector2(0.485, 0.485)
+collision_layer = 4
+collision_mask = 18
+script = ExtResource("1_v8qja")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.57602, 0.413992)
+rotation = 1.5708
+scale = Vector2(1.57322, 1.74537)
+texture = ExtResource("2_v8qja")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90476, 0.254844)
+rotation = 1.55695
+shape = SubResource("RectangleShape2D_2b2rl")
+
+[node name="BulletTrail" parent="." instance=ExtResource("3_t4vbm")]
+position = Vector2(-41.2371, 0.000149278)

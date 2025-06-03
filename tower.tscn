@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://doxptb3mqag4g"]
+
+[ext_resource type="Script" uid="uid://gmqlj4x41e2i" path="res://Scripts/tower.gd" id="1_vedim"]
+[ext_resource type="Texture2D" uid="uid://wtk8uap7fwle" path="res://Assets/playerShip1_orange.png" id="2_vxmma"]
+[ext_resource type="AudioStream" uid="uid://e6il7nvtq14o" path="res://Assets/sfx_laser1.ogg" id="3_stebd"]
+[ext_resource type="Texture2D" uid="uid://2feyfgkoa855" path="res://Assets/Gunshot_animation_on_black_background_cartoon_illustration_set-removebg-preview.png" id="3_vxmma"]
+[ext_resource type="AudioStream" uid="uid://8eui5erfbrv3" path="res://Assets/pow-90398(1).mp3" id="4_jbe1c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxmma"]
+atlas = ExtResource("3_vxmma")
+region = Rect2(0, 31, 101, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lny5m"]
+atlas = ExtResource("3_vxmma")
+region = Rect2(101, 31, 101, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ibu2"]
+atlas = ExtResource("3_vxmma")
+region = Rect2(202, 31, 101, 89)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdbe0"]
+atlas = ExtResource("3_vxmma")
+region = Rect2(303, 31, 101, 89)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yh44g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxmma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lny5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ibu2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdbe0")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_stebd"]
+
+[node name="Tower" type="Area2D"]
+script = ExtResource("1_vedim")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.90735e-06, 3.8147e-06)
+rotation = 1.5708
+scale = Vector2(0.672502, 0.670336)
+texture = ExtResource("2_vxmma")
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(135, 0)
+
+[node name="ShootEffectSprite" type="AnimatedSprite2D" parent="Muzzle"]
+position = Vector2(-49, -3)
+scale = Vector2(0.587089, 0.560492)
+sprite_frames = SubResource("SpriteFrames_yh44g")
+animation = &"shoot"
+frame = 3
+frame_progress = 1.0
+
+[node name="LaserTrace" type="Line2D" parent="Muzzle"]
+position = Vector2(-84, 0)
+points = PackedVector2Array(0, 0, 1, 0)
+width = 2.0
+default_color = Color(1, 0.462648, 0.27832, 1)
+
+[node name="LaserRayCast" type="RayCast2D" parent="Muzzle"]
+position = Vector2(-83, 0)
+target_position = Vector2(0, 0)
+collision_mask = 2
+
+[node name="ShootSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_stebd")
+pitch_scale = 1.53
+
+[node name="HurtBox" type="Area2D" parent="." groups=["player_tower", "tower_hurtbox"]]
+collision_layer = 8
+collision_mask = 18
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -1)
+scale = Vector2(6.44, 6.44)
+shape = SubResource("CircleShape2D_stebd")
+
+[node name="HitSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jbe1c")
+
+[connection signal="animation_finished" from="Muzzle/ShootEffectSprite" to="." method="_on_shooting_effect_sprite_animation_finished"]

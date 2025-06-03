@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://whjgiwg6b22t"]
+
+[ext_resource type="AudioStream" uid="uid://bcwb7ow6x16dp" path="res://Assets/explosion-322491.mp3" id="1_4gy6p"]
+[ext_resource type="Script" uid="uid://t2i0xxeexvq" path="res://Scripts/tower_explosion_audio_player.gd" id="2_3tekh"]
+
+[node name="TowerExplosionAudioPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_4gy6p")
+volume_db = 15.501
+script = ExtResource("2_3tekh")

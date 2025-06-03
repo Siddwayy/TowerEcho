@@ -1,0 +1,155 @@
+[gd_scene load_steps=15 format=3 uid="uid://cj00wi21gbg0f"]
+
+[ext_resource type="Script" uid="uid://2qcaxay42x33" path="res://Scripts/main_level.gd" id="1_f4tcu"]
+[ext_resource type="Texture2D" uid="uid://bufiq7f6xgtrd" path="res://Assets/grunge-black-concrete-textured-background.jpg" id="2_u6e21"]
+[ext_resource type="PackedScene" uid="uid://doxptb3mqag4g" path="res://tower.tscn" id="3_e48vm"]
+[ext_resource type="PackedScene" uid="uid://dxgab8ocbt3v5" path="res://game_ui.tscn" id="4_w5em5"]
+[ext_resource type="AudioStream" uid="uid://naxep1v8dabb" path="res://Assets/game-music-player-console-8bit-background-intro-theme-297305.mp3" id="5_f4tcu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctebd"]
+size = Vector2(39.8085, 39.3981)
+
+[sub_resource type="Environment" id="Environment_eqmdw"]
+background_mode = 3
+ssr_enabled = true
+glow_enabled = true
+glow_strength = 1.5
+glow_bloom = 0.69
+
+[sub_resource type="Curve2D" id="Curve2D_5fjre"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 444, 0, 0, 0, 0, 21, 414, 0, 0, 0, 0, 60, 351, 0, 0, 0, 0, 98, 382, 0, 0, 0, 0, 147, 368, 0, 0, 0, 0, 173, 409, 0, 0, 0, 0, 199, 442, 0, 0, 0, 0, 265, 421, 0, 0, 0, 0, 275, 365, 0, 0, 0, 0, 306, 313, 0, 0, 0, 0, 342, 346, 0, 0, 0, 0, 372, 386, 0, 0, 0, 0, 424, 385, 0, 0, 0, 0, 465, 345, 0, 0, 0, 0, 501, 330, 0, 0, 0, 0, 546, 349, 0, 0, 0, 0, 577, 353)
+}
+point_count = 17
+
+[sub_resource type="Curve2D" id="Curve2D_oeaww"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 9, 10, 0, 0, 0, 0, 40, 23, 0, 0, 0, 0, 46, 78, 0, 0, 0, 0, 80, 85, 0, 0, 0, 0, 119, 74, 0, 0, 0, 0, 162, 92, 0, 0, 0, 0, 172, 125, 0, 0, 0, 0, 202, 150, 0, 0, 0, 0, 237, 164, 0, 0, 0, 0, 266, 166, 0, 0, 0, 0, 310, 184, 0, 0, 0, 0, 332, 210, 0, 0, 0, 0, 354, 246, 0, 0, 0, 0, 391, 194, 0, 0, 0, 0, 427, 229, 0, 0, 0, 0, 450, 268, 0, 0, 0, 0, 464, 314, 0, 0, 0, 0, 499, 302, 0, 0, 0, 0, 534, 311, 0, 0, 0, 0, 563, 333)
+}
+point_count = 20
+
+[sub_resource type="Curve2D" id="Curve2D_aonjr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1106, 5, 0, 0, 0, 0, 1095, 42, 0, 0, 0, 0, 1078, 78, 0, 0, 0, 0, 1059, 114, 0, 0, 0, 0, 1030, 154, 0, 0, 0, 0, 992, 165, 0, 0, 0, 0, 940, 169, 0, 0, 0, 0, 897, 166, 0, 0, 0, 0, 871, 170, 0, 0, 0, 0, 821, 187, 0, 0, 0, 0, 769, 210, 0, 0, 0, 0, 737, 241, 0, 0, 0, 0, 697, 273, 0, 0, 0, 0, 665, 304, 0, 0, 0, 0, 637, 323, 0, 0, 0, 0, 609, 332, 0, 0, 0, 0, 594, 334)
+}
+point_count = 17
+
+[sub_resource type="Curve2D" id="Curve2D_do8ha"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 968, 615, 0, 0, 0, 0, 579, 337)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_htena"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 283, 646, 0, 0, 0, 0, 283, 634, 0, 0, 0, 0, 281, 618, 0, 0, 0, 0, 282, 604, 0, 0, 0, 0, 285, 588, 0, 0, 0, 0, 290, 572, 0, 0, 0, 0, 297, 555, 0, 0, 0, 0, 306, 544, 0, 0, 0, 0, 321, 531, 0, 0, 0, 0, 343, 513, 0, 0, 0, 0, 355, 503, 0, 0, 0, 0, 361, 499, 0, 0, 0, 0, 378, 490, 0, 0, 0, 0, 393, 483, 0, 0, 0, 0, 409, 474, 0, 0, 0, 0, 431, 463, 0, 0, 0, 0, 450, 455, 0, 0, 0, 0, 464, 449, 0, 0, 0, 0, 478, 441, 0, 0, 0, 0, 492, 430, 0, 0, 0, 0, 503, 421, 0, 0, 0, 0, 512, 411, 0, 0, 0, 0, 522, 401, 0, 0, 0, 0, 532, 390, 0, 0, 0, 0, 539, 379, 0, 0, 0, 0, 543, 374, 0, 0, 0, 0, 547, 370, 0, 0, 0, 0, 551, 367, 0, 0, 0, 0, 555, 363, 0, 0, 0, 0, 561, 359, 0, 0, 0, 0, 570, 356, 0, 0, 0, 0, 577, 352, 0, 0, 0, 0, 584, 348)
+}
+point_count = 33
+
+[sub_resource type="Curve2D" id="Curve2D_eqmdw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1147, 326, 0, 0, 0, 0, 1136, 323, 0, 0, 0, 0, 1127, 318, 0, 0, 0, 0, 1108, 313, 0, 0, 0, 0, 1094, 307, 0, 0, 0, 0, 1070, 299, 0, 0, 0, 0, 1060, 296, 0, 0, 0, 0, 1059, 296, 0, 0, 0, 0, 1038, 293, 0, 0, 0, 0, 1019, 293, 0, 0, 0, 0, 998, 297, 0, 0, 0, 0, 980, 303, 0, 0, 0, 0, 963, 310, 0, 0, 0, 0, 949, 318, 0, 0, 0, 0, 936, 326, 0, 0, 0, 0, 935, 326, 0, 0, 0, 0, 925, 332, 0, 0, 0, 0, 912, 339, 0, 0, 0, 0, 909, 339, 0, 0, 0, 0, 893, 347, 0, 0, 0, 0, 871, 358, 0, 0, 0, 0, 850, 367, 0, 0, 0, 0, 832, 370, 0, 0, 0, 0, 810, 376, 0, 0, 0, 0, 794, 381, 0, 0, 0, 0, 769, 381, 0, 0, 0, 0, 748, 384, 0, 0, 0, 0, 728, 385, 0, 0, 0, 0, 698, 380, 0, 0, 0, 0, 685, 379, 0, 0, 0, 0, 661, 370, 0, 0, 0, 0, 638, 358, 0, 0, 0, 0, 627, 351, 0, 0, 0, 0, 612, 342, 0, 0, 0, 0, 605, 345)
+}
+point_count = 35
+
+[sub_resource type="Curve2D" id="Curve2D_uhmka"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 748, 644, 0, 0, 0, 0, 733, 635, 0, 0, 0, 0, 721, 632, 0, 0, 0, 0, 699, 629, 0, 0, 0, 0, 681, 627, 0, 0, 0, 0, 659, 628, 0, 0, 0, 0, 638, 628, 0, 0, 0, 0, 616, 631, 0, 0, 0, 0, 593, 631, 0, 0, 0, 0, 566, 628, 0, 0, 0, 0, 550, 626, 0, 0, 0, 0, 531, 621, 0, 0, 0, 0, 512, 613, 0, 0, 0, 0, 501, 601, 0, 0, 0, 0, 501, 592, 0, 0, 0, 0, 507, 581, 0, 0, 0, 0, 516, 574, 0, 0, 0, 0, 541, 570, 0, 0, 0, 0, 547, 569, 0, 0, 0, 0, 567, 568, 0, 0, 0, 0, 588, 570, 0, 0, 0, 0, 605, 571, 0, 0, 0, 0, 633, 573, 0, 0, 0, 0, 648, 574, 0, 0, 0, 0, 677, 576, 0, 0, 0, 0, 690, 573, 0, 0, 0, 0, 706, 571, 0, 0, 0, 0, 719, 566, 0, 0, 0, 0, 733, 556, 0, 0, 0, 0, 734, 540, 0, 0, 0, 0, 730, 532, 0, 0, 0, 0, 715, 524, 0, 0, 0, 0, 688, 515, 0, 0, 0, 0, 651, 505, 0, 0, 0, 0, 643, 504, 0, 0, 0, 0, 629, 501, 0, 0, 0, 0, 624, 500, 0, 0, 0, 0, 621, 499, 0, 0, 0, 0, 597, 485, 0, 0, 0, 0, 584, 478, 0, 0, 0, 0, 580, 471, 0, 0, 0, 0, 576, 458, 0, 0, 0, 0, 576, 451, 0, 0, 0, 0, 575, 441, 0, 0, 0, 0, 574, 434, 0, 0, 0, 0, 572, 425, 0, 0, 0, 0, 571, 419, 0, 0, 0, 0, 573, 410, 0, 0, 0, 0, 573, 402, 0, 0, 0, 0, 573, 399, 0, 0, 0, 0, 574, 393, 0, 0, 0, 0, 576, 386, 0, 0, 0, 0, 577, 382, 0, 0, 0, 0, 578, 376, 0, 0, 0, 0, 579, 367, 0, 0, 0, 0, 1666, 228)
+}
+point_count = 56
+
+[node name="MainLevel" type="Node2D"]
+script = ExtResource("1_f4tcu")
+enemy_paths = Array[NodePath]([NodePath("EnemyPath1"), NodePath("EnemyPath2"), NodePath("EnemyPath3"), NodePath("EnemyPath4"), NodePath("EnemyPath5"), NodePath("EnemyPath5"), NodePath("EnemyPath6"), NodePath("EnemyPath7")])
+total_enemies_to_spawn = 50
+spawn_interval = 0.8
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576.5, 325.25)
+scale = Vector2(0.169012, 0.141931)
+texture = ExtResource("2_u6e21")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 323)
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(387, 173)
+scale = Vector2(8.39, 8.39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(22.093, 20.2462)
+shape = SubResource("RectangleShape2D_ctebd")
+
+[node name="ColorRect" type="ColorRect" parent="Platform"]
+offset_left = 1.7438
+offset_top = 0.134137
+offset_right = 41.7438
+offset_bottom = 40.1341
+color = Color(0.114897, 0.114897, 0.114897, 1)
+
+[node name="Line2D" type="Line2D" parent="Platform"]
+position = Vector2(21.9987, 19.8524)
+scale = Vector2(0.395, 0.395)
+points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+closed = true
+width = 2.0
+default_color = Color(0.983666, 0.66843, 0.329041, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Platform/Line2D"]
+environment = SubResource("Environment_eqmdw")
+
+[node name="Line2D2" type="Line2D" parent="Platform"]
+position = Vector2(21.9987, 19.8524)
+scale = Vector2(0.38, 0.38)
+points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
+closed = true
+width = 1.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="Tower" parent="Platform" instance=ExtResource("3_e48vm")]
+position = Vector2(23.0445, 19.6721)
+scale = Vector2(0.069, 0.069)
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+position = Vector2(-440, 330)
+
+[node name="Spawn Point" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(461, 41)
+
+[node name="Spawn Point2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(566, -310)
+
+[node name="Spawn Point3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1407, 281)
+
+[node name="Spawn Point4" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(1542, -287)
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints"]
+
+[node name="EnemyPath1" type="Path2D" parent="."]
+curve = SubResource("Curve2D_5fjre")
+
+[node name="EnemyPath2" type="Path2D" parent="."]
+curve = SubResource("Curve2D_oeaww")
+
+[node name="EnemyPath3" type="Path2D" parent="."]
+curve = SubResource("Curve2D_aonjr")
+
+[node name="EnemyPath4" type="Path2D" parent="."]
+curve = SubResource("Curve2D_do8ha")
+
+[node name="EnemyPath5" type="Path2D" parent="."]
+curve = SubResource("Curve2D_htena")
+
+[node name="EnemyPath6" type="Path2D" parent="."]
+curve = SubResource("Curve2D_eqmdw")
+
+[node name="EnemyPath7" type="Path2D" parent="."]
+curve = SubResource("Curve2D_uhmka")
+
+[node name="GameUI" parent="." instance=ExtResource("4_w5em5")]
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_f4tcu")
+autoplay = true

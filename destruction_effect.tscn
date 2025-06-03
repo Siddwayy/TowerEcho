@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqxxt8b646yk5"]
+
+[ext_resource type="Script" uid="uid://gb7cfehegj5m" path="res://Scripts/destruction_effect.gd" id="1_5rwr7"]
+
+[sub_resource type="Gradient" id="Gradient_5rwr7"]
+offsets = PackedFloat32Array(0, 0.0245902, 0.0327869, 0.0409836, 0.991803)
+colors = PackedColorArray(0, 0, 0, 1, 0.180392, 0.8, 0.443137, 1, 0.180392, 0.8, 0.443137, 1, 1, 0.581483, 0.132124, 1, 0.810982, 0.571286, 0.00501484, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5rwr7"]
+gradient = SubResource("Gradient_5rwr7")
+
+[sub_resource type="Curve" id="Curve_fjnlx"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hqwm8"]
+curve = SubResource("Curve_fjnlx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gptbk"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 70.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 300, 0)
+scale_min = 0.0
+scale_max = 6.75
+scale_curve = SubResource("CurveTexture_hqwm8")
+color_ramp = SubResource("GradientTexture1D_5rwr7")
+
+[node name="DestructionEffect" type="Node2D"]
+script = ExtResource("1_5rwr7")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 60
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_gptbk")

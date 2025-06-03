@@ -1,0 +1,115 @@
+[gd_scene load_steps=18 format=3 uid="uid://bllvuldl0jh6y"]
+
+[ext_resource type="Script" uid="uid://babjkjf3ubr4i" path="res://Scripts/main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://cikdpydk5vwq3" path="res://Assets/ChatGPT Image Jun 2, 2025, 05_02_47 PM.png" id="2_qe12f"]
+[ext_resource type="Texture2D" uid="uid://om3rppkhnf46" path="res://Assets/ChatGPT Image Jun 2, 2025, 05_05_57 PM.png" id="3_8qtwp"]
+[ext_resource type="AudioStream" uid="uid://bprbkk2q7g5hk" path="res://Assets/hover-button-287656.mp3" id="3_fu7sn"]
+[ext_resource type="AudioStream" uid="uid://xmcnmbedndw3" path="res://Assets/game-start-6104.mp3" id="4_jix8l"]
+[ext_resource type="AudioStream" uid="uid://v5nf74unyr88" path="res://Assets/resonant-victory-glbml-22044.mp3" id="6_8u0te"]
+[ext_resource type="Texture2D" uid="uid://bv61kct2wwnia" path="res://Menu Buttons/Square Buttons/Square Buttons/Audio Square Button.png" id="7_w44g7"]
+[ext_resource type="Texture2D" uid="uid://8gjx2p54ngth" path="res://Menu Buttons/Square Buttons/Colored Square Buttons/Audio col_Square Button.png" id="8_cm266"]
+[ext_resource type="Texture2D" uid="uid://q6lsy07mpvrl" path="res://Menu Buttons/Large Buttons/Large Buttons/Controls Button.png" id="9_j5v2v"]
+[ext_resource type="Texture2D" uid="uid://c1dfpevcs4rjb" path="res://Menu Buttons/Large Buttons/Large Buttons/New game Button.png" id="9_w44g7"]
+[ext_resource type="Texture2D" uid="uid://cswm0xbkm2vxf" path="res://Menu Buttons/Large Buttons/Colored Large Buttons/New Game  col_Button.png" id="10_cm266"]
+[ext_resource type="Texture2D" uid="uid://cko57c65txqmt" path="res://Menu Buttons/Large Buttons/Colored Large Buttons/Controls  col_Button.png" id="10_iotk1"]
+[ext_resource type="Texture2D" uid="uid://dk0hsspwbk3yf" path="res://Menu Buttons/Large Buttons/Large Buttons/Exit Button.png" id="11_w44g7"]
+[ext_resource type="Texture2D" uid="uid://g8s6w3l5meko" path="res://Menu Buttons/Large Buttons/Colored Large Buttons/Exit  col_Button.png" id="12_cm266"]
+[ext_resource type="Texture2D" uid="uid://dxkpiltxj1gs2" path="res://Menu Buttons/Square Buttons/Square Buttons/Play Square Button.png" id="15_8u0te"]
+[ext_resource type="AudioStream" uid="uid://bheiqepd1c0tc" path="res://Assets/menu-selection-102220.mp3" id="15_cm266"]
+[ext_resource type="Texture2D" uid="uid://dd4h57s3emxmr" path="res://Menu Buttons/Square Buttons/Colored Square Buttons/Play col_Square Button.png" id="16_oiatc"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vrkn")
+
+[node name="BackgroundImage" type="Sprite2D" parent="."]
+position = Vector2(576.5, 323.5)
+scale = Vector2(1.12402, 0.633789)
+texture = ExtResource("2_qe12f")
+
+[node name="GameTitle" type="Sprite2D" parent="."]
+position = Vector2(650, 153)
+scale = Vector2(0.375122, 0.261353)
+texture = ExtResource("3_8qtwp")
+
+[node name="HoverSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fu7sn")
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jix8l")
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8u0te")
+volume_db = -5.942
+autoplay = true
+
+[node name="SoundToggleButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = 192.0
+offset_top = 502.0
+offset_right = 392.0
+offset_bottom = 589.0
+scale = Vector2(0.187897, 0.386668)
+toggle_mode = true
+texture_normal = ExtResource("7_w44g7")
+texture_pressed = ExtResource("8_cm266")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="PlayGameButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = 471.0
+offset_top = 231.0
+offset_right = 671.0
+offset_bottom = 291.0
+texture_normal = ExtResource("9_w44g7")
+texture_hover = ExtResource("10_cm266")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ControlsButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = 472.0
+offset_top = 316.0
+offset_right = 672.0
+offset_bottom = 376.0
+texture_normal = ExtResource("9_j5v2v")
+texture_hover = ExtResource("10_iotk1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="QuitGameButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = 476.0
+offset_top = 401.0
+offset_right = 676.0
+offset_bottom = 461.0
+texture_normal = ExtResource("11_w44g7")
+texture_hover = ExtResource("12_cm266")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ResumeButton" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = 189.0
+offset_top = 105.0
+offset_right = 389.0
+offset_bottom = 192.0
+scale = Vector2(0.187897, 0.386668)
+texture_normal = ExtResource("15_8u0te")
+texture_hover = ExtResource("16_oiatc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ClickButtonsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_cm266")
