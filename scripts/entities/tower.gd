@@ -12,6 +12,9 @@ var last_score_checkpoint: int = 0
 @export var fire_rate: float = 15.0
 var can_shoot: bool = true
 
+# --- Movement Variables ---
+@export var move_speed: float = 300.0
+
 # --- Existing Variables ---
 var target_enemy: Node2D = null
 
@@ -262,6 +265,22 @@ func _process(delta: float):
 	if is_dying:
 		if laser_trace: laser_trace.visible = false
 		return
+
+	# Handle WASD Movement
+	var movement = Vector2.ZERO
+	if Input.is_key_pressed(KEY_W): movement.y -= 1
+	if Input.is_key_pressed(KEY_S): movement.y += 1
+	if Input.is_key_pressed(KEY_A): movement.x -= 1
+	if Input.is_key_pressed(KEY_D): movement.x += 1
+	
+	if movement != Vector2.ZERO:
+		movement = movement.normalized()
+		global_position += movement * move_speed * delta
+		
+		# Clamp to screen to prevent flying off
+		var screen_size = get_viewport_rect().size
+		global_position.x = clamp(global_position.x, 0, screen_size.x)
+		global_position.y = clamp(global_position.y, 0, screen_size.y)
 
 	look_at(get_global_mouse_position())
 
