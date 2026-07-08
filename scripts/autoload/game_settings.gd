@@ -60,6 +60,7 @@ func clear_saved_state():
 	saved_score = 0
 	saved_enemies_spawned_count = 0
 	saved_bullet_count = 150 # <-- ADDED: Reset bullet count
+	self.current_bullets = 150 # <-- FIX: Reset live bullet count for new games
 	saved_enemies_data.clear()
 
 
