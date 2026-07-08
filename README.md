@@ -1,69 +1,89 @@
 # TowerEcho — 2D Tower Defense (Godot 4)
 
-TowerEcho is a 2D tower defense game built in **Godot Engine 4.5** using **GDScript**. Defend your base with a mouse-aimed turret against waves of enemies that follow path-based routes, with emphasis on responsive combat, UI, VFX, and SFX.
+**TowerEcho** is a solo-developed 2D tower defense game built with **Godot Engine 4.5** and **GDScript**. The project focuses on responsive turret combat, enemy wave pressure, path-based AI, and polished moment-to-moment feedback through UI, visual effects, and sound design [file:16].
 
-- Genre: 2D Tower Defense
-- Platforms: PC, macOS, Linux
-- Team: Solo Developer
-- Duration: May 2025 – Present
+- **Genre:** 2D Tower Defense
+- **Platform:** PC, macOS
+- **Engine:** Godot 4.5
+- **Language:** GDScript
+- **Developer:** Solo project
+- **Development Period:** May 2025 – Present
 
-**Links**
-- Demo Video: https://www.youtube.com/watch?v=o0rbP4KEBjw
-- Download exe: https://drive.google.com/drive/folders/1c3aYWJNMp83Iuo8QpqoFJHxdrZtkFTsD?usp=sharing
+## Links
 
-MainMenu:
-<img width="1163" height="725" alt="MainMenu" src="https://github.com/user-attachments/assets/9693990c-ef0d-40f8-8023-42a6d80cdaa0" />
-
-inGame:
-<img width="1164" height="722" alt="inGame" src="https://github.com/user-attachments/assets/9f49517e-65c6-4573-8dce-3ad279765f30" />
-
-EnemyAi:
-<img width="2560" height="1440" alt="enemyai" src="https://github.com/user-attachments/assets/10c04a3a-fecc-42ce-aad3-ba41a4953c36" />
+- **Demo Video:** [YouTube](https://www.youtube.com/watch?v=o0rbP4KEBjw)
+- **Download:** [Google Drive build folder](https://drive.google.com/drive/folders/1c3aYWJNMp83Iuo8QpqoFJHxdrZtkFTsD?usp=sharing)
 
 ---
 
-## Getting started
+## Screenshots
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Siddwayy/minimilisttd.git
-   cd minimilisttd
-   ```
-2. Open the project in Godot 4.5 (`project.godot`).
-3. Press **F5** or click **Play** to run from the main menu.
+### Main Menu
+<img width="1163" height="725" alt="TowerEcho main menu" src="https://github.com/user-attachments/assets/73c48c17-66b3-483d-9828-662dfd9ebb0d" />
 
-## Key Features
+### Gameplay
+<img width="2560" height="1440" alt="TowerEcho gameplay screen" src="https://github.com/user-attachments/assets/58f7df22-cde0-4de3-9904-1b46ec606213" />
 
-- Mouse-aimed turret: hold to fire continuously toward the cursor
-- WASD movement: fly the tower in all directions
-- HUD: health, ammo, score
-- Enemy waves along randomized paths
-- Pause/save: Esc saves and returns to menu; resume from main menu
-- Polish: VFX, floating damage numbers, camera shake, SFX
+### Enemy AI / Pathing
+<img width="2560" height="1440" alt="TowerEcho enemy AI and pathing" src="https://github.com/user-attachments/assets/e8b119b0-659a-45c4-8ad3-ccf2da63c239" />
 
-## Tech Stack
+---
 
-- Godot Engine 4.5 + GDScript
-- Path-based enemy spawning and projectile combat
-- `GameSettings` autoload for bullet count and save state
+## Overview
+
+In **TowerEcho**, the player defends a base using a mouse-aimed turret while surviving increasingly difficult enemy waves. Enemies follow path-based routes, and the game emphasizes fast combat feedback, readable UI, and arcade-style polish [file:16].
+
+---
+
+## Features
+
+- **Mouse-aimed shooting** with continuous fire control.
+- **Wave-based enemy pressure** with path-following behavior.
+- **HUD systems** for core gameplay feedback, including health, ammo, and score.
+- **Pause and save flow** that returns the player to the menu and supports resuming progress.
+- **Game feel polish** including VFX, floating damage numbers, camera shake, and SFX.
+
+---
 
 ## Controls
 
 | Input | Action |
 |-------|--------|
-| **W A S D** | Move the tower |
 | **Mouse** | Aim |
-| **Left click** | Shoot |
+| **Left Click** | Shoot |
 | **Esc** | Save and return to menu |
 
-## Project structure
+---
 
-```
+## Tech Stack
+
+- **Engine:** Godot Engine 4.5
+- **Language:** GDScript
+- **Gameplay Systems:** Path-based enemy spawning, projectile combat, HUD systems
+- **Project Architecture:** `GameSettings` autoload for bullet count and save-state handling
+
+---
+
+## Project Structure
+
+```text
 assets/     Art, audio, fonts
-scenes/     Game scenes (levels, UI, entities, effects)
-scripts/    GDScript source
+scenes/     Game scenes, UI, entities, effects
+scripts/    GDScript source files
 ```
 
-## License
+---
 
-MIT License — see [LICENSE](LICENSE).
+## Getting Started
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Siddwayy/minimilisttd.git
+cd minimilisttd
+```
+
+2. Open the project in **Godot 4.5** using `project.godot`.
+3. Press **F5** or click **Play** to run the game from the main menu.
+
+---
