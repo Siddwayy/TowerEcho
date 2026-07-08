@@ -14,6 +14,9 @@ var can_shoot: bool = true
 
 # --- Movement Variables ---
 @export var move_speed: float = 300.0
+@export var acceleration: float = 1200.0
+@export var friction: float = 800.0
+var velocity: Vector2 = Vector2.ZERO
 
 # --- Existing Variables ---
 var target_enemy: Node2D = null
@@ -275,12 +278,16 @@ func _process(delta: float):
 	
 	if movement != Vector2.ZERO:
 		movement = movement.normalized()
-		global_position += movement * move_speed * delta
+		velocity = velocity.move_toward(movement * move_speed, acceleration * delta)
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 		
-		# Clamp to screen to prevent flying off
-		var screen_size = get_viewport_rect().size
-		global_position.x = clamp(global_position.x, 0, screen_size.x)
-		global_position.y = clamp(global_position.y, 0, screen_size.y)
+	global_position += velocity * delta
+	
+	# Clamp to screen to prevent flying off
+	var screen_size = get_viewport_rect().size
+	global_position.x = clamp(global_position.x, 0, screen_size.x)
+	global_position.y = clamp(global_position.y, 0, screen_size.y)
 
 	look_at(get_global_mouse_position())
 

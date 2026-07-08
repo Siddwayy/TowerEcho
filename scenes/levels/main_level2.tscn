@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cj00wi21gbg0f"]
+[gd_scene format=3 uid="uid://cj00wi21gbg0f"]
 
 [ext_resource type="Script" uid="uid://2qcaxay42x33" path="res://scripts/levels/main_level.gd" id="1_f4tcu"]
 [ext_resource type="Texture2D" uid="uid://bufiq7f6xgtrd" path="res://assets/textures/backgrounds/grunge-black-concrete-textured-background.jpg" id="2_u6e21"]
@@ -58,36 +58,36 @@ _data = {
 }
 point_count = 56
 
-[node name="MainLevel" type="Node2D"]
+[node name="MainLevel" type="Node2D" unique_id=1232888792]
 script = ExtResource("1_f4tcu")
 enemy_paths = Array[NodePath]([NodePath("EnemyPath1"), NodePath("EnemyPath2"), NodePath("EnemyPath3"), NodePath("EnemyPath4"), NodePath("EnemyPath5"), NodePath("EnemyPath5"), NodePath("EnemyPath6"), NodePath("EnemyPath7")])
-total_enemies_to_spawn = 50
+total_enemies_to_spawn = 30
 spawn_interval = 0.8
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=922507474]
 position = Vector2(576.5, 325.25)
 scale = Vector2(0.169012, 0.141931)
 texture = ExtResource("2_u6e21")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=358094439]
 position = Vector2(577, 323)
 
-[node name="Platform" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="." unique_id=9083490]
 position = Vector2(387, 173)
 scale = Vector2(8.39, 8.39)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform" unique_id=782291580]
 position = Vector2(22.093, 20.2462)
 shape = SubResource("RectangleShape2D_ctebd")
 
-[node name="ColorRect" type="ColorRect" parent="Platform"]
+[node name="ColorRect" type="ColorRect" parent="Platform" unique_id=416398139]
 offset_left = 1.7438
 offset_top = 0.134137
 offset_right = 41.7438
 offset_bottom = 40.1341
 color = Color(0.114897, 0.114897, 0.114897, 1)
 
-[node name="Line2D" type="Line2D" parent="Platform"]
+[node name="Line2D" type="Line2D" parent="Platform" unique_id=129360953]
 position = Vector2(21.9987, 19.8524)
 scale = Vector2(0.395, 0.395)
 points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
@@ -95,10 +95,10 @@ closed = true
 width = 2.0
 default_color = Color(0.983666, 0.66843, 0.329041, 1)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Platform/Line2D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Platform/Line2D" unique_id=836575082]
 environment = SubResource("Environment_eqmdw")
 
-[node name="Line2D2" type="Line2D" parent="Platform"]
+[node name="Line2D2" type="Line2D" parent="Platform" unique_id=771303670]
 position = Vector2(21.9987, 19.8524)
 scale = Vector2(0.38, 0.38)
 points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
@@ -106,50 +106,50 @@ closed = true
 width = 1.0
 default_color = Color(0, 0, 0, 1)
 
-[node name="Tower" parent="Platform" instance=ExtResource("3_e48vm")]
+[node name="Tower" parent="Platform" unique_id=1044991 instance=ExtResource("3_e48vm")]
 position = Vector2(23.0445, 19.6721)
 scale = Vector2(0.069, 0.069)
 
-[node name="SpawnPoints" type="Node2D" parent="."]
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1679609399]
 position = Vector2(-440, 330)
 
-[node name="Spawn Point" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn Point" type="Marker2D" parent="SpawnPoints" unique_id=1270660591]
 position = Vector2(461, 41)
 
-[node name="Spawn Point2" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn Point2" type="Marker2D" parent="SpawnPoints" unique_id=443226483]
 position = Vector2(566, -310)
 
-[node name="Spawn Point3" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn Point3" type="Marker2D" parent="SpawnPoints" unique_id=163709204]
 position = Vector2(1407, 281)
 
-[node name="Spawn Point4" type="Marker2D" parent="SpawnPoints"]
+[node name="Spawn Point4" type="Marker2D" parent="SpawnPoints" unique_id=1189337274]
 position = Vector2(1542, -287)
 
-[node name="Marker2D" type="Marker2D" parent="SpawnPoints"]
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=419677770]
 
-[node name="EnemyPath1" type="Path2D" parent="."]
+[node name="EnemyPath1" type="Path2D" parent="." unique_id=218775312]
 curve = SubResource("Curve2D_5fjre")
 
-[node name="EnemyPath2" type="Path2D" parent="."]
+[node name="EnemyPath2" type="Path2D" parent="." unique_id=1397528470]
 curve = SubResource("Curve2D_oeaww")
 
-[node name="EnemyPath3" type="Path2D" parent="."]
+[node name="EnemyPath3" type="Path2D" parent="." unique_id=1445516549]
 curve = SubResource("Curve2D_aonjr")
 
-[node name="EnemyPath4" type="Path2D" parent="."]
+[node name="EnemyPath4" type="Path2D" parent="." unique_id=1763466676]
 curve = SubResource("Curve2D_do8ha")
 
-[node name="EnemyPath5" type="Path2D" parent="."]
+[node name="EnemyPath5" type="Path2D" parent="." unique_id=761785559]
 curve = SubResource("Curve2D_htena")
 
-[node name="EnemyPath6" type="Path2D" parent="."]
+[node name="EnemyPath6" type="Path2D" parent="." unique_id=978481092]
 curve = SubResource("Curve2D_eqmdw")
 
-[node name="EnemyPath7" type="Path2D" parent="."]
+[node name="EnemyPath7" type="Path2D" parent="." unique_id=1516030935]
 curve = SubResource("Curve2D_uhmka")
 
-[node name="GameUI" parent="." instance=ExtResource("4_w5em5")]
+[node name="GameUI" parent="." unique_id=744644352 instance=ExtResource("4_w5em5")]
 
-[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=2087244420]
 stream = ExtResource("5_f4tcu")
 autoplay = true
