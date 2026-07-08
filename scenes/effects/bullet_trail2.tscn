@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://e88xqr52fvr4"]
+
+[sub_resource type="Gradient" id="Gradient_olufv"]
+offsets = PackedFloat32Array(0.927273, 0.936364, 0.981818, 1)
+colors = PackedColorArray(0, 0.743898, 0.4495, 1, 1, 0.4249, 0.0420868, 1, 0.917278, 0.479689, 7.70092e-07, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aedkx"]
+gradient = SubResource("Gradient_olufv")
+
+[sub_resource type="Curve" id="Curve_ixvrr"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_vk3oa"]
+curve = SubResource("Curve_ixvrr")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ua5uw"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_vk3oa")
+color_ramp = SubResource("GradientTexture1D_aedkx")
+
+[node name="EenemyBulletTrail" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 20
+lifetime = 0.2
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_ua5uw")
