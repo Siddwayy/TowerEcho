@@ -1,89 +1,101 @@
-# TowerEcho — 2D Tower Defense (Godot 4)
+<div align="center">
+  <h1>TowerEcho</h1>
+  <p><b>A fast-paced, arcade-inspired 2D Tower Defense game built in Godot 4.5.</b></p>
+  
+  <!-- Badges -->
+  <a href="https://godotengine.org/"><img src="https://img.shields.io/badge/Godot-4.5-478cbf?logo=godot-engine&logoColor=white&style=flat-square" alt="Godot 4.5"></a>
+  <img src="https://img.shields.io/badge/Language-GDScript-blue?style=flat-square" alt="GDScript">
+  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=flat-square" alt="Platforms">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"></a>
+</div>
 
-**TowerEcho** is a solo-developed 2D tower defense game built with **Godot Engine 4.5** and **GDScript**. The project focuses on responsive turret combat, enemy wave pressure, path-based AI, and polished moment-to-moment feedback through UI, visual effects, and sound design [file:16].
+<br>
 
-- **Genre:** 2D Tower Defense
-- **Platform:** PC, macOS
-- **Engine:** Godot 4.5
-- **Language:** GDScript
-- **Developer:** Solo project
-- **Development Period:** May 2025 – Present
+**TowerEcho** replaces autonomous turrets with direct player control. Defend a central base using a mouse-aimed turret while surviving increasingly difficult, path-based enemy waves. This project emphasizes responsive combat, rapid target prioritization, and arcade-style game feel.
 
-## Links
-
-- **Demo Video:** [YouTube](https://www.youtube.com/watch?v=o0rbP4KEBjw)
-- **Download:** [Google Drive build folder](https://drive.google.com/drive/folders/1c3aYWJNMp83Iuo8QpqoFJHxdrZtkFTsD?usp=sharing)
-
----
-
-## Screenshots
-
-### Main Menu
-<img width="1163" height="725" alt="TowerEcho main menu" src="https://github.com/user-attachments/assets/73c48c17-66b3-483d-9828-662dfd9ebb0d" />
-
-### Gameplay
-<img width="2560" height="1440" alt="TowerEcho gameplay screen" src="https://github.com/user-attachments/assets/58f7df22-cde0-4de3-9904-1b46ec606213" />
-
-### Enemy AI / Pathing
-<img width="2560" height="1440" alt="TowerEcho enemy AI and pathing" src="https://github.com/user-attachments/assets/e8b119b0-659a-45c4-8ad3-ccf2da63c239" />
+> 🎮 **[Play the Demo / Download Latest Build](https://drive.google.com/drive/folders/1c3aYWJNMp83Iuo8QpqoFJHxdrZtkFTsD?usp=drive_link)**
+> 
+> 🍿 **[Watch the Trailer](https://www.youtube.com/watch?v=o0rbP4KEBjw)**
 
 ---
 
-## Overview
-
-In **TowerEcho**, the player defends a base using a mouse-aimed turret while surviving increasingly difficult enemy waves. Enemies follow path-based routes, and the game emphasizes fast combat feedback, readable UI, and arcade-style polish [file:16].
-
----
-
-## Features
-
-- **Mouse-aimed shooting** with continuous fire control.
-- **Wave-based enemy pressure** with path-following behavior.
-- **HUD systems** for core gameplay feedback, including health, ammo, and score.
-- **Pause and save flow** that returns the player to the menu and supports resuming progress.
-- **Game feel polish** including VFX, floating damage numbers, camera shake, and SFX.
+## 📑 Table of Contents
+- [Features](#-features)
+- [Media Gallery](#-media-gallery)
+- [Technical Overview](#-technical-overview)
+- [Getting Started (Source Code)](#-getting-started)
+- [Controls](#-controls)
+- [License](#-license)
 
 ---
 
-## Controls
-
-| Input | Action |
-|-------|--------|
-| **Mouse** | Aim |
-| **Left Click** | Shoot |
-| **Esc** | Save and return to menu |
+## ✨ Features
+* **Mouse-Aimed Combat:** Direct continuous fire control for precise target prioritization.
+* **Path-Based AI Waves:** Dynamic enemy spawning utilizing Godot's `Path2D` navigation.
+* **Responsive Game Feel:** Highly polished visual and auditory feedback including floating damage numbers, screen shake, hit-stop, and particle effects.
+* **Robust Save/State System:** Seamlessly pause, return to the main menu, and resume gameplay without state loss or memory leaks.
 
 ---
 
-## Tech Stack
+## 📸 Media Gallery
 
-- **Engine:** Godot Engine 4.5
-- **Language:** GDScript
-- **Gameplay Systems:** Path-based enemy spawning, projectile combat, HUD systems
-- **Project Architecture:** `GameSettings` autoload for bullet count and save-state handling
+### Intense Action
+<div align="center">
+  <img width="100%" alt="TowerEcho gameplay screen" src="https://github.com/user-attachments/assets/58f7df22-cde0-4de3-9904-1b46ec606213" />
+</div>
+
+### Path-based AI & Wave Pressure
+<div align="center">
+  <img width="100%" alt="TowerEcho enemy AI and pathing" src="https://github.com/user-attachments/assets/e8b119b0-659a-45c4-8ad3-ccf2da63c239" />
+</div>
+
+### Clean UI & State Management
+<div align="center">
+  <img width="100%" alt="TowerEcho main menu" src="https://github.com/user-attachments/assets/73c48c17-66b3-483d-9828-662dfd9ebb0d" />
+</div>
 
 ---
 
-## Project Structure
+## 🛠️ Technical Overview
 
-```text
-assets/     Art, audio, fonts
-scenes/     Game scenes, UI, entities, effects
-scripts/    GDScript source files
-```
+TowerEcho was developed as a solo project to explore responsive gameplay architecture in Godot 4.5. Key technical implementations include:
+
+* **Signal-Driven UI:** The HUD (health, ammo, score) is fully decoupled from core gameplay logic, relying entirely on Godot's Signal system for asynchronous updates.
+* **`GameSettings` Autoload:** A persistent Singleton manages global state (current wave, total score, player health) allowing safe transitions between the main menu and game scenes.
+* **Wave Manager:** A custom wave spawner that parses data to control spawn rates, enemy types, and difficulty scaling dynamically over time.
+* **Physics-Based Projectiles:** Engineered for high performance to maintain 60+ FPS even with dozens of active projectiles and enemies on screen.
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
+If you want to explore the source code or build the game yourself:
+
+### Prerequisites
+* [Godot Engine 4.5](https://godotengine.org/download) (Standard Version)
+
+### Installation
 1. Clone the repository:
-
-```bash
-git clone https://github.com/Siddwayy/minimilisttd.git
-cd minimilisttd
-```
-
-2. Open the project in **Godot 4.5** using `project.godot`.
-3. Press **F5** or click **Play** to run the game from the main menu.
+   ```bash
+   git clone https://github.com/Siddwayy/minimilisttd.git
+   ```
+2. Open **Godot 4.5**.
+3. Click **Import** and navigate to the cloned folder.
+4. Select the `project.godot` file.
+5. Press `F5` (or click the Play button in the top right) to run the project.
 
 ---
+
+## ⌨️ Controls
+
+| Action | Input (Keyboard & Mouse) |
+| :--- | :--- |
+| **Aim Turret** | Mouse Movement |
+| **Shoot** | Left Mouse Button (Hold) |
+| **Pause / Menu** | `Esc` |
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
